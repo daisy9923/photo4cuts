@@ -19,13 +19,14 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            background-image: url("./background.png");
+            background-image: url("./img/background.jpg");
         }
 
         .container {
             width: 390px;
-            background-color: #ff9d73;
+            background-color: #7a3752;
             height: 100%;
+            background-image: url(./twinkle.png);
         }
 
         .photos {
@@ -33,7 +34,7 @@
         }
 
         .photo-frame {
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             margin: 15px 20px;
             height: 200px;
 
@@ -63,19 +64,19 @@
         }
 
         #image1 {
-            background-image: url('./img1.png');
+            background-image: url('./img/졸전후.jpg');
         }
 
         #image2 {
-            background-image: url('./img2.png');
+            background-image: url('./img/동네친구들.jpg');
         }
 
         #image3 {
-            background-image: url('./img3.png');
+            background-image: url('./img/22살생일.jpg');
         }
 
         #image4 {
-            background-image: url('./img4.png');
+            background-image: url('./img/고딩친구들.jpg');
         }
 
         .photo_description {
@@ -122,9 +123,12 @@
             } else if (number === 2) {
                 document.querySelector("#desc2").classList.remove("hideText");
                 document.querySelector("#desc2").classList.add("showText");
-            } else {
+            } else if (number === 3){
                 document.querySelector("#desc3").classList.remove("hideText");
                 document.querySelector("#desc3").classList.add("showText");
+            }else {
+                document.querySelector("#desc4").classList.remove("hideText");
+                document.querySelector("#desc4").classList.add("showText");
             }
         }
 
@@ -138,10 +142,12 @@
             } else if (number === 2) {
                 document.querySelector("#desc2").classList.remove("showText");
                 document.querySelector("#desc2").classList.add("hideText");
-            } else {
+            } else if(number === 3){
                 document.querySelector("#desc3").classList.remove("showText");
                 document.querySelector("#desc3").classList.add("hideText");
-            }
+            }else{
+                document.querySelector("#desc4").classList.remove("showText");
+                document.querySelector("#desc4").classList.add("hideText");}
         }
 
         // 클릭 기능
@@ -158,33 +164,43 @@
             <div id="image1" class="photo-frame" onmouseover="showText(1)" onmouseout="hideText(1)"
                 onclick="alertText(1)">
                 <span id="desc1" class="photo_description">
-                    첫 번째 이미지 설명
+                    졸전 후 꽃다발들고🌼
                 </span>
             </div>
             <div id="image2" class="photo-frame" onmouseover="showText(2)" onmouseout="hideText(2)"
                 onclick="alertText(2)">
                 <span id="desc2" class="photo_description">
-                    두 번째 이미지 설명
+                    동네 칭구들🍺
                 </span>
             </div>
             <div id="image3" class="photo-frame" onmouseover="showText(3)" onmouseout="hideText(3)"
                 onclick="alertText(3)">
                 <span id="desc3" class="photo_description">
-                    세 번째 이미지 설명
+                    22살 생일🎂
                 </span>
             </div>
-            <div class="photo-frame">
-                <!-- <span id="desc4" class="photo_description">
-                    네 번째 이미지 설명
-                </span> -->
+            <!-- <div class="photo-frame">
                 <iframe src="https://www.youtube.com/embed/TWz1btekxfs" frameborder="0" class="video"></iframe>
+            </div> -->
+            <div id="image4" class="photo-frame" onmouseover="showText(4)" onmouseout="hideText(4)"
+                onclick="alertText(4)">
+                <span id="desc4" class="photo_description">
+                    고딩 칭구들🏫
+                </span>
             </div>
         </div>
         <div class="footer">
-            <p class="f-title">Happy Lunch Time</p>
-            <p class="f-date">2023.01.25</p>
+            <p class="f-title">♥ MunYong's Photo ♥</p>
+            <p class="f-date" id="current_date"></p>
         </div>
     </div>
 </body>
+<script>
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("current_date").innerHTML = year + "." + month + "." + day;
+</script>
 
 </html>
